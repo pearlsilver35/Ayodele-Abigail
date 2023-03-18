@@ -3576,7 +3576,7 @@ hr {
 }
 
 .blog-items .archive-item .image img {
-	height: 180px;
+	height: auto;
 }
 
 .blog-items .archive-item .desc {
@@ -5275,6 +5275,10 @@ a.wp-block-button__link {
 }
 
 @media screen and (max-width: 767px) {
+	.works-items.works-masonry-items .works-item .image img {
+		height: 200px;
+		border-radius: 18px;
+	}
 	.lui-section {
 		padding-bottom: 120px;
 	}
