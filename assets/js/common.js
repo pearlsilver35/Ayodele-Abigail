@@ -122,6 +122,9 @@ $(function() {
 	/**
 		Header Switcher Button
 	**/
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		$('.header .switcher-btn').addClass('active');
+	}
 	var skin = $.cookie('skin');
 	if ( skin == 'light' ) {
 		$('body').removeClass('dark-skin');
@@ -135,6 +138,7 @@ $(function() {
 	if ( $('body').hasClass('dark-skin') ) {
 		$('.header .switcher-btn').addClass('active');
 	}
+	
 	$('.header').on('click', '.switcher-btn', function(){
 		if($(this).hasClass('active')) {
 			$(this).removeClass('active');

@@ -451,7 +451,7 @@ label.error {
 	padding-top: 5px;
 	font-family: "Jost";
 	font-size: 14px;
-	color: red;
+	color: #ff000070;
 	display: none;
 }
 
