@@ -490,29 +490,37 @@ function initCursor() {
 			message: {
 				required: true
 			},
+			subject: {
+				required: true
+			},
 			email: {
 				required: true,
 				email: true
 			}
 		},
 		success: 'valid',
-		submitHandler: function() {
-			$.ajax({
-				url: 'mailer/feedback.php',
-				type: 'post',
-				dataType: 'json',
-				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&subject='+ $("#cform").find('input[name="subject"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
-				beforeSend: function() {
+		submitHandler: function () {
+			const apiKey = "D218DF437C484F0905C02F5C40ECB1BFDEF034B5FA8A8017A176EAE74FD7A3C157CCC7C22D3C790EF83E4970B548EBFD";
+			const toEmail = "ayodeleabigailofficial@gmail.com";
+			const fromEmail = "pearlsilver35@gmail.com";
+			const subject = $("#cform").find('input[name="subject"]').val();
+			const body = `
+			Name: ${$("#cform").find('input[name="name"]').val()}\n
+			Email: ${$("#cform").find('input[name="email"]').val()}\n
+			Subject: ${subject}\n\n
+			Message:\n${$("#cform").find('textarea[name="message"]').val()}
+		    `;
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://api.elasticemail.com/v2/email/send");
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-				},
-				complete: function() {
-
-				},
-				success: function(data) {
+			xhr.onreadystatechange = function () {
+				if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 					$('#cform').fadeOut();
 					$('.alert-success').delay(1000).fadeIn();
 				}
-			});
+			};
+			xhr.send(`apikey=${apiKey}&to=${toEmail}&from=${fromEmail}&subject=${subject}&bodyHtml=${body}`);
 		}
 	});
 	}

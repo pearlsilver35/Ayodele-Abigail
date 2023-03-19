@@ -2849,6 +2849,14 @@ hr {
 	margin: 0;
 }
 
+.text-card{
+	margin: 5px; 
+	width: 21% !important; 
+	right: -17px !important; 
+	bottom: -50px !important; 
+	background-image: 
+	url(../images/pat-2.png);
+}
 
 /**
 * Section Services
