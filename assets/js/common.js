@@ -1,5 +1,5 @@
 /**
-*	Abigail - Personal Portfolio HTML Template
+*	Abigail - Personal Portfolio
 *	Version: 1.0
 *	Author: Abigail
 *	Copyright © Abigail. All Rights Reserved.
